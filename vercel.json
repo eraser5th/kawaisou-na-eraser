@@ -3,11 +3,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "api/index.ts"
-    },
-    {
-      "source": "/style/:filename",
-      "destination": "liff/style/:filename"
+      "destination": "api/index.js"
     }
   ]
 }
