@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/eraser5th/kawaisou-na-eraser/issues"
   },
-  "homepage": "https://github.com/eraser5th/kawaisou-na-eraser#readme"
+  "homepage": "https://github.com/eraser5th/kawaisou-na-eraser#readme",
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
 }
