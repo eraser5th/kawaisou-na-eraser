@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import TwitterApi from 'twitter-api-v2';
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.API_KEY;
   if (apiKey === undefined) {
     console.log('apiKey is undefined だよーん');
@@ -38,7 +38,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     accessSecret: accessTokenSecret,
     accessToken,
   });
-  const tweetRes = twitterClient.v1.tweet('tweet from node');
+  const tweetRes = await twitterClient.v1.tweet('tweet from node');
   console.log(tweetRes);
   res.status(200).json({
     body: tweetRes,
