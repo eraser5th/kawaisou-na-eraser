@@ -2,7 +2,7 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import Twitter from 'twitter';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  const apiKey = process.env.API_TOKEN;
+  const apiKey = process.env.API_KEY;
   if (apiKey === undefined) {
     console.log('apiKey is undefined だよーん');
     res.status(502);
