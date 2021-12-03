@@ -2,25 +2,25 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 import Twitter from 'twitter';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  const apiKey = process.env['api-key'];
+  const apiKey = process.env.API_TOKEN;
   if (apiKey === undefined) {
     console.log('apiKey is undefined だよーん');
     res.status(502);
     return;
   }
-  const apiSecret = process.env['api-key-secret'];
+  const apiSecret = process.env.API_TOKEN_SECRET;
   if (apiSecret === undefined) {
     console.log('api-key-secret is undefined だよーん');
     res.status(502);
     return;
   }
-  const accessToken = process.env['access-token'];
+  const accessToken = process.env.ACCESS_TOKEN;
   if (accessToken === undefined) {
     console.log('access-token is undefined だよーん');
     res.status(502);
     return;
   }
-  const accessTokenSecret = process.env['access-token-secret'];
+  const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
   if (accessTokenSecret === undefined) {
     console.log('access-token-secret is undefined だよーん');
     res.status(502);
