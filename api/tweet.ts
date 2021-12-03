@@ -38,7 +38,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     accessSecret: accessTokenSecret,
     accessToken,
   });
-  twitterClient.v1.tweet('tweet from node');
+  const tweetRes = twitterClient.v1.tweet('tweet from node');
+  console.log(tweetRes);
   res.status(200).json({
     body: req.body,
     query: req.query,
