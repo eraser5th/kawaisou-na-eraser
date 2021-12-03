@@ -32,7 +32,12 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     res.status(502);
     return;
   }
-  const twitterClient = new TwitterApi(bearerToken);
+  const twitterClient = new TwitterApi({
+    appKey: apiKey,
+    appSecret: apiSecret,
+    accessSecret: accessTokenSecret,
+    accessToken,
+  });
   twitterClient.v1.tweet('tweet from node');
   res.status(200).json({
     body: req.body,
