@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import Twitter from 'twitter';
+import TwitterApi from 'twitter-api-v2';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.API_KEY;
@@ -26,22 +26,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     res.status(502);
     return;
   }
-  const client = new Twitter({
-    consumer_key: apiKey,
-    consumer_secret: apiSecret,
-    access_token_key: accessToken,
-    access_token_secret: accessTokenSecret,
-  });
-  client.post('statuses/update', { status: 'Hello World from Node' }, (error, rs, rq) => {
-    if (error) {
-      console.log(error);
-      console.log('tweetに失敗しちゃったよーん');
-      res.status(502);
-    } else {
-      console.log('tweetでけた!!!');
-      console.log(rs, rq);
-    }
-  });
+  const bearerToken = process.env.BEARER_TOKEN;
+  if (bearerToken === undefined) {
+    console.log('bearer token is undefined');
+    res.status(502);
+    return;
+  }
+  const twitterClient = new TwitterApi();
+  twitterClient.v1.tweet('tweet from node');
   res.status(200).json({
     body: req.body,
     query: req.query,

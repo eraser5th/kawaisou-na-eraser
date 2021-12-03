@@ -20,6 +20,7 @@
     "@types/twitter": "^1.7.1",
     "@vercel/node": "^1.12.1",
     "twitter": "^1.7.1",
+    "twitter-api-v2": "^1.7.0",
     "twitter-d": "^0.4.0"
   },
   "homepage": "https://github.com/eraser5th/kawaisou-na-eraser#readme",
