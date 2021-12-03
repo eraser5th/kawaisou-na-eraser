@@ -38,7 +38,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     accessSecret: accessTokenSecret,
     accessToken,
   });
-  const tweetRes = await twitterClient.v2.tweet('tweet from node');
+  const tweetRes = await twitterClient.v2.tweet('まつもとせんぱーーーい(Made in ERASER)');
   console.log(tweetRes);
   res.status(200).json({
     body: tweetRes,
