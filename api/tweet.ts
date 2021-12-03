@@ -41,7 +41,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const tweetRes = twitterClient.v1.tweet('tweet from node');
   console.log(tweetRes);
   res.status(200).json({
-    body: req.body,
+    body: tweetRes,
     query: req.query,
     cookies: req.cookies,
   });
