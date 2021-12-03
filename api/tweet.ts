@@ -8,19 +8,19 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     res.status(502);
     return;
   }
-  const apiSecret = process.env.api_token_secret;
+  const apiSecret = process.env.API_KEY_SECRET;
   if (apiSecret === undefined) {
     console.log('api-key-secret is undefined だよーん');
     res.status(502);
     return;
   }
-  const accessToken = process.env.access_token;
+  const accessToken = process.env.ACCESS_TOKEN;
   if (accessToken === undefined) {
     console.log('access-token is undefined だよーん');
     res.status(502);
     return;
   }
-  const accessTokenSecret = process.env.access_token_secret;
+  const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
   if (accessTokenSecret === undefined) {
     console.log('access-token-secret is undefined だよーん');
     res.status(502);
